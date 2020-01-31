@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDom from 'react-dom'
 import './App.css';
+import ToDoItem from './TodoItem'
+import todosData from './todosData'
 
 function App() {
+
+ const todoComponent =  todosData.map(function(item) {
+    return <ToDoItem key={item.id} text={item.text} completed={item.completed} />
+  })
+
   return(
-    <div>
-      <input type="checkbox" />
-      <p>some text here</p>
-      <input type="checkbox" />
-      <p>some more text here</p>
-      <input type="checkbox" />
-      <p>some moreeee text here</p>
+    <div className="todo-list">
+    {todoComponent}
     </div>
   )
 }
