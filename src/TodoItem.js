@@ -10,18 +10,18 @@ import React from 'react'
 
 
 //class based components. 
-class ToDoItem extends React.Component {
 
-   
-
-    render() {
-      return (
-        <div className="todo-item">
-            <input type="checkbox" checked={this.props.completed} />
-          <p>{this.props.text}</p>
-        </div>
-        )
-    }
+function TodoItem(props) {
+  return (
+      <div className="todo-item">
+          <input 
+              type="checkbox" 
+              checked={props.item.completed} 
+              onChange={() => props.handleChange(props.item.id)}
+          />
+          <p>{props.item.text}</p>
+      </div>
+  )
 }
 
-export default ToDoItem
+export default TodoItem
